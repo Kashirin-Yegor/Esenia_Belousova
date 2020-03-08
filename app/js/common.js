@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
   $("#my-menu").mmenu({
     extensions: [
       "effect-menu-slide",
@@ -12,20 +12,20 @@ $(function() {
   });
 
   var api = $("#my-menu").data("mmenu");
-  api.bind("open:before", function() {
+  api.bind("open:before", function () {
     $(".hamburger").addClass("is-active");
   });
-  api.bind("close:before", function() {
+  api.bind("close:before", function () {
     $(".hamburger").removeClass("is-active");
   });
 
-  $(".carousel-services").on("initialized.owl.carousel", function() {
-    setTimeout(function() {
+  $(".carousel-services").on("initialized.owl.carousel", function () {
+    setTimeout(function () {
       carouselService();
     }, 100);
   });
 
-  $(function() {
+  $(function () {
     $(".carousel-items").owlCarousel({
       loop: true,
       nav: true,
@@ -50,8 +50,8 @@ $(function() {
     });
 
     function carouselService() {
-		$('.carousel-text').equalHeights(); 
-      $('.carousel-item').each(function() {
+      $('.carousel-text').equalHeights();
+      $('.carousel-item').each(function () {
         var t = $(this);
         var h = t.find('.carousel-text').outerHeight();
         t.find('.carousel-pic').css('min-height', h);
@@ -60,36 +60,36 @@ $(function() {
     carouselService();
   });
 
-  $('.carousel-text .h2').each(function() {
+  $('.carousel-text .h2').each(function () {
     var ths = $(this);
     ths.html(ths.html().replace(/(\S+)\s*$/, '<span>$1</span>'));
   });
 
   $('.s-king .h2').each(function () {
-  	var ths = $(this);
-  	ths.html(ths.html().replace(/^(\S+\s*)/, '<span>$1</span>'));
+    var ths = $(this);
+    ths.html(ths.html().replace(/^(\S+\s*)/, '<span>$1</span>'));
   });
 
   //Resize Windows
-//   function onResize() {
-//   	$('.carousel-text').equalHeights();
-//   }
-//   onResize();
-//   $(window).bind('resize', function () {
-//   	equalize();
-//   });
+  //   function onResize() {
+  //   	$('.carousel-text').equalHeights();
+  //   }
+  //   onResize();
+  //   $(window).bind('resize', function () {
+  //   	equalize();
+  //   });
 
   // $('.carousel-text').equalHeights()
   // $(window).resize(function()
   // {$('.carousel-text').equalHeights();});
 
-  $(document).ready(function() {
+  $(document).ready(function () {
     $(".carousel-text").equalHeights();
   });
 
 
   /* Selectize */
-	// $("select").selectize();
+  // $("select").selectize();
 
   $(".reviews").owlCarousel({
     loop: true,
@@ -98,7 +98,7 @@ $(function() {
     nav: false
   });
 
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > $(this).height()) {
       $(".top").addClass("active");
     } else {
@@ -106,29 +106,29 @@ $(function() {
     }
   });
 
-  $(".top").click(function() {
+  $(".top").click(function () {
     $("html,body")
       .stop()
       .animate({ scrollTop: 0 }, "slow", "swing");
   });
 
-  $(document).ready(function() {
+  $(document).ready(function () {
     //E-mail Ajax Send
-    $("form.callback").submit(function() {
+    $("form.callback").submit(function () {
       //Change
       var th = $(this);
       $.ajax({
         type: "POST",
         url: "mail.php", //Change
         data: th.serialize()
-      }).done(function() {
+      }).done(function () {
         $(th)
           .find(".success")
           .addClass("active")
           .css("display", "flex")
           .hide()
           .fadeIn();
-        setTimeout(function() {
+        setTimeout(function () {
           $(th)
             .find(".success")
             .removeClass("active")
@@ -141,7 +141,7 @@ $(function() {
   });
 });
 
-$(window).on("load", function() {
+$(window).on("load", function () {
   $(".preloader")
     .delay(500)
     .fadeOut('slow');
